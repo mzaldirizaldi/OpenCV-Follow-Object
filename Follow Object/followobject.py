@@ -13,7 +13,7 @@ while True:
     red_lower = np.array([105, 100, 125], np.uint8)
     red_upper = np.array([130, 255, 230], np.uint8)
     mask = cv.inRange(hsv, red_lower, red_upper)
-    contours,  = cv.findContours(mask, cv.RETR_TREE, cv.CHAIN_APPROXSIMPLE)
+    contours,  = cv.findContours(mask, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
     contours = sorted(contours, key=lambda x: cv.contourArea(x), reverse=True)
     rows, cols,  = frame.shape
     center_x = int(rows / 2)
